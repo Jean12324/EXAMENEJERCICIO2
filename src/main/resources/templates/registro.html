@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registro de Venta</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="container mt-5">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Formulario de Registro</h3>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/registro}" method="post" th:object="${ventaEntradas}">
+                        <!-- Nombres -->
+                        <div class="mb-3">
+                            <label for="nombres" class="form-label">Nombres:</label>
+                            <input type="text" class="form-control" id="nombres" th:field="*{nombres}" placeholder="Ingresa tus nombres">
+                            <div class="text-danger" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
+                        </div>
+
+                        <!-- Apellidos -->
+                        <div class="mb-3">
+                            <label for="apellidos" class="form-label">Apellidos:</label>
+                            <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}" placeholder="Ingresa tus apellidos">
+                            <div class="text-danger" th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></div>
+                        </div>
+
+                        <!-- DNI -->
+                        <div class="mb-3">
+                            <label for="dni" class="form-label">DNI:</label>
+                            <input type="text" class="form-control" id="dni" th:field="*{dni}" placeholder="Ingresa tu DNI">
+                            <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+                        </div>
+
+                        <!-- Lugar de Residencia -->
+                        <div class="mb-3">
+                            <label for="lugarResidencia" class="form-label">Lugar de Residencia:</label>
+                            <input type="text" class="form-control" id="lugarResidencia" th:field="*{lugarResidencia}" placeholder="Ingresa tu lugar de residencia">
+                            <div class="text-danger" th:if="${#fields.hasErrors('lugarResidencia')}" th:errors="*{lugarResidencia}"></div>
+                        </div>
+
+                        <!-- Número de Contacto de Emergencia -->
+                        <div class="mb-3">
+                            <label for="numeroContactoEmergencia" class="form-label">Número de Contacto de Emergencia:</label>
+                            <input type="text" class="form-control" id="numeroContactoEmergencia" th:field="*{numeroContactoEmergencia}" placeholder="Ingresa el número de contacto">
+                            <div class="text-danger" th:if="${#fields.hasErrors('numeroContactoEmergencia')}" th:errors="*{numeroContactoEmergencia}"></div>
+                        </div>
+
+                        <!-- Teléfono Personal -->
+                        <div class="mb-3">
+                            <label for="telefonoPersonal" class="form-label">Teléfono Personal:</label>
+                            <input type="text" class="form-control" id="telefonoPersonal" th:field="*{telefonoPersonal}" placeholder="Ingresa tu número de teléfono">
+                            <div class="text-danger" th:if="${#fields.hasErrors('telefonoPersonal')}" th:errors="*{telefonoPersonal}"></div>
+                        </div>
+
+                        <!-- Tipo de Sangre -->
+                        <div class="mb-3">
+                            <label for="tipoSangre" class="form-label">Tipo de Sangre:</label>
+                            <input type="text" class="form-control" id="tipoSangre" th:field="*{tipoSangre}" placeholder="Ej: O+">
+                            <div class="text-danger" th:if="${#fields.hasErrors('tipoSangre')}" th:errors="*{tipoSangre}"></div>
+                        </div>
+
+                        <!-- Alergias -->
+                        <div class="mb-3">
+                            <label for="alergias" class="form-label">Alergias:</label>
+                            <input type="text" class="form-control" id="alergias" th:field="*{alergias}" placeholder="Ej: Maní, Polvo">
+                        </div>
+
+                        <!-- Kilómetros -->
+                        <div class="mb-3">
+                            <label for="kilometros" class="form-label">Kilómetros:</label>
+                            <input type="number" class="form-control" id="kilometros" th:field="*{kilometros}" placeholder="Ingresa el número de kilómetros">
+                            <div class="text-danger" th:if="${#fields.hasErrors('kilometros')}" th:errors="*{kilometros}"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
